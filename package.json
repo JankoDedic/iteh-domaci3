@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/JankoDedic/iteh-domaci3/issues"
   },
-  "homepage": "https://github.com/JankoDedic/iteh-domaci3#readme"
+  "homepage": "https://github.com/JankoDedic/iteh-domaci3#readme",
+  "devDependencies": {
+    "parcel": "^2.0.1"
+  }
 }
