@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npx parcel src/index.html"
+    "start": "webpack serve",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -17,8 +18,16 @@
   },
   "homepage": "https://github.com/JankoDedic/iteh-domaci3#readme",
   "devDependencies": {
+    "@babel/core": "^7.16.7",
+    "@babel/preset-env": "^7.16.7",
+    "@babel/preset-react": "^7.16.7",
     "@parcel/transformer-sass": "^2.0.1",
-    "parcel": "^2.0.1"
+    "babel-loader": "^8.2.3",
+    "html-webpack-plugin": "^5.5.0",
+    "parcel": "^2.0.1",
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.7.2"
   },
   "dependencies": {
     "bootstrap": "^5.1.3",
