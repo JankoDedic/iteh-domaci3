@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 
 import { ContactEdit } from './ContactEdit'
-import { ContactInfo } from './ContactInfo'
+import { ContactList } from './ContactList'
 import { NavBar } from './NavBar'
 
 export function App() {
@@ -10,9 +10,7 @@ export function App() {
       <NavBar />
 
       <div className="container">
-        <ContactInfo firstName="Janko" lastName="Dedic" phoneNumber="123" />
-        <ContactInfo firstName="Janko" lastName="Dedic" phoneNumber="123" />
-        <ContactInfo firstName="Janko" lastName="Dedic" phoneNumber="123" />
+        <ContactList />
         <ContactEdit />
       </div>
     </div>
