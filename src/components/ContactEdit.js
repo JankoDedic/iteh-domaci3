@@ -1,16 +1,39 @@
-export function ContactEdit({ firstName, lastName, phoneNumber, onSave }) {
+export function ContactEdit({
+  firstName,
+  onFirstNameChange,
+  lastName,
+  onLastNameChange,
+  phoneNumber,
+  onPhoneNumberChange,
+  onSave
+}) {
   return (
     <div className="row p-2">
       <div className="col-4">
-        <input type="text" className="form-control" placeholder="First name" />
+        <input
+          className="form-control"
+          type="text"
+          placeholder="First name"
+          value={firstName}
+          onChange={onFirstNameChange} />
       </div>
 
       <div className="col-4">
-        <input type="text" className="form-control" placeholder="Last name" />
+        <input
+          className="form-control"
+          type="text"
+          placeholder="Last name"
+          value={lastName}
+          onChange={onLastNameChange} />
       </div>
 
       <div className="col">
-        <input type="text" className="form-control" placeholder="Phone number" />
+        <input
+          className="form-control"
+          type="text"
+          placeholder="Phone number"
+          value={phoneNumber}
+          onChange={onPhoneNumberChange} />
       </div>
 
       <div className="col">
