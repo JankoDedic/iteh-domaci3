@@ -3,19 +3,18 @@ import { useState } from 'react'
 import { ContactEdit } from './ContactEdit'
 import { ContactInfo } from './ContactInfo'
 
-export function ContactInfoOrEdit(props) {
-  const [firstName, setFirstName] = useState(props.firstName)
-  const [lastName, setLastName] = useState(props.lastName)
-  const [phoneNumber, setPhoneNumber] = useState(props.phoneNumber)
+export function ContactInfoOrEdit({
+  firstName,
+  lastName,
+  phoneNumber,
+  onSave
+}) {
   const [editing, setEditing] = useState(false)
 
-  const handleFirstNameChange = (event) => setFirstName(event.target.value)
-  const handleLastNameChange = (event) => setLastName(event.target.value)
-  const handlePhoneNumberChange = (event) => setPhoneNumber(event.target.value)
   const handleEdit = () => setEditing(true)
 
-  const handleSave = () => {
-    props.onSave({ firstName, lastName, phoneNumber })
+  const handleSave = (contact) => {
+    onSave(contact)
     setEditing(false)
   }
 
@@ -23,17 +22,14 @@ export function ContactInfoOrEdit(props) {
     editing ?
       <ContactEdit
         firstName={firstName}
-        onFirstNameChange={handleFirstNameChange}
         lastName={lastName}
-        onLastNameChange={handleLastNameChange}
         phoneNumber={phoneNumber}
-        onPhoneNumberChange={handlePhoneNumberChange}
         onSave={handleSave} />
     :
       <ContactInfo
-        firstName={props.firstName}
-        lastName={props.lastName}
-        phoneNumber={props.phoneNumber}
+        firstName={firstName}
+        lastName={lastName}
+        phoneNumber={phoneNumber}
         onEdit={handleEdit} />
   )
 }

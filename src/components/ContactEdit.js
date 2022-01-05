@@ -1,12 +1,16 @@
-export function ContactEdit({
-  firstName,
-  onFirstNameChange,
-  lastName,
-  onLastNameChange,
-  phoneNumber,
-  onPhoneNumberChange,
-  onSave
-}) {
+import { useState } from 'react'
+
+export function ContactEdit(props) {
+  const [firstName, setFirstName] = useState(props.firstName)
+  const [lastName, setLastName] = useState(props.lastName)
+  const [phoneNumber, setPhoneNumber] = useState(props.phoneNumber)
+
+  const handleFirstNameChange = (event) => setFirstName(event.target.value)
+  const handleLastNameChange = (event) => setLastName(event.target.value)
+  const handlePhoneNumberChange = (event) => setPhoneNumber(event.target.value)
+
+  const handleSaveClick = () => props.onSave({ firstName, lastName, phoneNumber })
+
   return (
     <div className="row p-2">
       <div className="col-4">
@@ -15,7 +19,7 @@ export function ContactEdit({
           type="text"
           placeholder="First name"
           value={firstName}
-          onChange={onFirstNameChange} />
+          onChange={handleFirstNameChange} />
       </div>
 
       <div className="col-4">
@@ -24,7 +28,7 @@ export function ContactEdit({
           type="text"
           placeholder="Last name"
           value={lastName}
-          onChange={onLastNameChange} />
+          onChange={handleLastNameChange} />
       </div>
 
       <div className="col">
@@ -33,11 +37,14 @@ export function ContactEdit({
           type="text"
           placeholder="Phone number"
           value={phoneNumber}
-          onChange={onPhoneNumberChange} />
+          onChange={handlePhoneNumberChange} />
       </div>
 
       <div className="col">
-        <button type="button" className="btn btn-primary" onClick={onSave}>
+        <button
+          className="btn btn-primary"
+          type="button"
+          onClick={handleSaveClick}>
           Save
         </button>
       </div>
