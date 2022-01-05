@@ -9,11 +9,9 @@ export function NavBar() {
             <li className="nav-item">
               <Link to="/" className="nav-link">Home</Link>
             </li>
+
             <li className="nav-item">
               <Link to="/frameworks" className="nav-link">Frameworks</Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/second_page" className="nav-link">Second page</Link>
             </li>
           </ul>
         </div>
