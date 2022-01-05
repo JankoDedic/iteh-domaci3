@@ -10,7 +10,7 @@ export function NavBar() {
               <Link to="/" className="nav-link">Home</Link>
             </li>
             <li className="nav-item">
-              <Link to="/first_page" className="nav-link">First page</Link>
+              <Link to="/frameworks" className="nav-link">Frameworks</Link>
             </li>
             <li className="nav-item">
               <Link to="/second_page" className="nav-link">Second page</Link>

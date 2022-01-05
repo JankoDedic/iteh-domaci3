@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 import { App } from './App'
-import { FirstPage } from './FirstPage'
+import { FrameworksPage } from './FrameworksPage'
 import { SecondPage } from './SecondPage'
 
 export function AppRouter() {
@@ -9,7 +9,7 @@ export function AppRouter() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="/first_page" element={<FirstPage />} />
+        <Route path="/frameworks" element={<FrameworksPage />} />
         <Route path="/second_page" element={<SecondPage />} />
       </Routes>
     </BrowserRouter>
