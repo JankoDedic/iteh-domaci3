@@ -1,23 +1,7 @@
-import { useState } from 'react'
-
 import { ContactInfoOrEdit } from './ContactInfoOrEdit'
 
-export function ContactList() {
-  const [contacts, setContacts] = useState([{
-    firstName: 'Janko',
-    lastName: 'Dedic',
-    phoneNumber: '123'
-  }, {
-    firstName: 'Marko',
-    lastName: 'Markovic',
-    phoneNumber: '456'
-  }])
-
-  const handleSave = (index) => (contact) => {
-    const contactsCopy = [...contacts]
-    contactsCopy[index] = contact
-    setContacts(contactsCopy)
-  }
+export function ContactList({ contacts, onSave }) {
+  const handleSave = (index) => (contact) => onSave(index, contact)
 
   return (
     <div>{

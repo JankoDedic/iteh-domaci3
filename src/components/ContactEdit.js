@@ -9,7 +9,12 @@ export function ContactEdit(props) {
   const handleLastNameChange = (event) => setLastName(event.target.value)
   const handlePhoneNumberChange = (event) => setPhoneNumber(event.target.value)
 
-  const handleSaveClick = () => props.onSave({ firstName, lastName, phoneNumber })
+  const handleSaveClick = () => {
+    props.onSave({ firstName, lastName, phoneNumber })
+    setFirstName('')
+    setLastName('')
+    setPhoneNumber('')
+  }
 
   return (
     <div className="row p-2">
