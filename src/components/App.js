@@ -6,23 +6,20 @@ import { ContactList } from './ContactList'
 import { NavBar } from './NavBar'
 
 export function App() {
-  const [contacts, setContacts] = useState([{
-    firstName: 'Janko',
-    lastName: 'Dedic',
-    phoneNumber: '123'
-  }, {
-    firstName: 'Marko',
-    lastName: 'Markovic',
-    phoneNumber: '456'
-  }])
+  const [contacts, setContacts] = useState(loadFromLocalStorage())
 
   const handleSave = (index, contact) => {
     const contactsCopy = [...contacts]
     contactsCopy[index] = contact
     setContacts(contactsCopy)
+    saveToLocalStorage(contactsCopy)
   }
 
-  const handleNewContact = (contact) => setContacts(contacts.concat([contact]))
+  const handleNewContact = (contact) => {
+    const newContacts = contacts.concat([contact])
+    setContacts(newContacts)
+    saveToLocalStorage(newContacts)
+  }
 
   return (
     <div>
@@ -34,4 +31,13 @@ export function App() {
       </div>
     </div>
   )
+}
+
+function saveToLocalStorage(contacts) {
+  window.localStorage.setItem('contacts', JSON.stringify(contacts))
+}
+
+function loadFromLocalStorage() {
+  const contacts = JSON.parse(window.localStorage.getItem('contacts'))
+  return contacts == null ? [] : contacts
 }
